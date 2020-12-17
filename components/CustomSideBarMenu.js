@@ -22,7 +22,7 @@ export default class CustomSideBarMenu extends Component{
         aspect: [4, 3],
         quality: 1,
      });
-     console.log(uri);
+     
      if (!cancelled) this. updateProfilePicture(uri);
    }
 
@@ -78,7 +78,7 @@ componentDidMount(){
               />
 
 
-            <Text style = {{fontWeight:'100',fontSize:20,paddingTop:10,}}> {this.state.name}</Text>
+            <Text style = {{fontWeight:'100',fontSize:30,paddingTop:10,color:"black"}}> {this.state.name}</Text>
 
         </View>
 

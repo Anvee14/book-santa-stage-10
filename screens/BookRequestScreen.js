@@ -164,7 +164,7 @@ updateBookRequestStatus=()=>{
   //updating the book status after receiving the book
   db.collection('requested_books').doc(this.state.docId)
   .update({
-    book_status : 'recieved'
+    book_status : 'received'
   })
 
   //getting the  doc id to update the users doc
