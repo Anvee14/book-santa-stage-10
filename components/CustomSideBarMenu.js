@@ -26,6 +26,31 @@ export default class CustomSideBarMenu extends Component{
      if (!cancelled) this. updateProfilePicture(uri);
    }
 
+   uploadImage = async (uri, imageName) => {
+    var response = await fetch(uri);
+    var blob = await response.blob();
+
+    var ref = firebase.storage().ref()
+      .child("user_profiles/" + imageName);
+
+    return ref.put(blob).then((response) => {
+      this.fetchImage(imageName);
+    });
+  };
+
+  fetchImage = (imageName) => {
+    var storageRef = firebase.storage().ref()
+      .child("user_profiles/" + imageName);
+
+    // Get the download URL
+    storageRef.getDownloadURL()
+      .then((url) => {
+        this.setState({ image: url });
+      })
+      .catch((error) => {
+        this.setState({ image: "#" });
+      });
+  };
 
 
 
@@ -53,8 +78,8 @@ export default class CustomSideBarMenu extends Component{
 
 
 componentDidMount(){
-  this.getUserProfile()
-
+  this.getUserProfile();
+  this.fetchImage(this.state.userId);
 }
 
   render(){
