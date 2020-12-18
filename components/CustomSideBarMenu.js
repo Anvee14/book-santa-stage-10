@@ -89,16 +89,16 @@ componentDidMount(){
 
             <Avatar
                 rounded
-                icon={{name: 'user', type: 'font-awesome'}}
+                //icon={{name: 'user', type: 'font-awesome'}}
                 source={{
                   uri:
                     this.state.image
                   }}
                 size="medium"
 
-                 overlayContainerStyle={{backgroundColor: 'white'}}
+                // overlayContainerStyle={{backgroundColor: 'white'}}
                  onPress={() => this.selectPicture()}
-                 activeOpacity={0.7}
+                // activeOpacity={0.7}
                  containerStyle={{flex:0.75,width:'40%',height:'20%', marginLeft: 20, marginTop: 30,borderRadius:40}}
               />
 
